@@ -70,3 +70,17 @@ func TestCompareNil3(t *testing.T) {
 	t.Log(g == nil)
 	t.Log(p(g))
 }
+
+func TestCompareInterface(t *testing.T) {
+	var g1 Languge = &Go{}
+	var g2 Languge = &Go{}
+	t.Log(g1 == g2)
+	var t1 interface{} = int(1)
+	var t2 interface{} = int(1)
+	t.Log(t1 == t2)
+	fmt.Printf("%T,%T,%v,%v\n", t1, t2, t1, t2)
+
+	var t3 interface{} = int64(1)
+	t.Log(t3 == t1)
+	fmt.Printf("%T,%T,%v,%v\n", t1, t3, t1, t3)
+}
