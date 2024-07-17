@@ -1,0 +1,41 @@
+basePath: /v1
+consumes:
+    - application/json
+    - application/xml
+host: localhost:8088
+info:
+    description: usersrv API文档.
+    title: usersrv
+    version: 1.0.0
+paths:
+    /users/{User}:
+        get:
+            operationId: userInfo
+            parameters:
+                - description: username of user info
+                  in: path
+                  name: User
+                  required: true
+                  type: string
+            responses:
+                "200":
+                    $ref: '#/responses/usersrvResp'
+            summary: 获取用户信息.
+            tags:
+                - user
+produces:
+    - application/xml
+    - application/json
+responses:
+    usersrvResp:
+        description: ""
+        headers:
+            Code:
+                format: int64
+                type: integer
+            Data:
+                type: string
+schemes:
+    - http
+    - https
+swagger: "2.0"
